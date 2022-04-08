@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+import './App.css';
+import ChatBar from './components/ChatBar/ChatBar';
+import Chat from "./components/Chat/Chat";
+
+function App(props) {
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="container">
+        <div className="row clearfix">
+          <div className="col-lg-12">
+            <div className="card chat-app">
+              <ChatBar State={props.State}/>
+              <Chat State={props.State}/>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
