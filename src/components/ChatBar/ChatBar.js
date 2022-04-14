@@ -6,7 +6,7 @@ function ChatBar (props) {
     return (
         <div id="plist" className="ChatBar">
             <SearchButton/>
-            <ChatItem State={props.State}/>
+            <ChatItem state={props.state}/>
         </div>
 
     );

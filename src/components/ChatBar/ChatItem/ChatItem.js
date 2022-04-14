@@ -21,7 +21,7 @@ const ChatItemElement = (props) => {
 }
 
 const ChatItem = (props) => {
-    let ChatElement = props.State.Chats.map(s => <ChatItemElement name={s.name} staus={s.status} avatar={s.avatar}/>)
+    let ChatElement = props.state.Chats.map(s => <ChatItemElement name={s.name} staus={s.status} avatar={s.avatar}/>)
 
     return (
         <div>

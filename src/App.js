@@ -11,8 +11,8 @@ function App(props) {
         <div className="row clearfix">
           <div className="col-lg-12">
             <div className="card chat-app">
-              <ChatBar State={props.State}/>
-              <Chat State={props.State}/>
+              <ChatBar state={props.state}/>
+              <Chat state={props.state}/>
             </div>
           </div>
         </div>
