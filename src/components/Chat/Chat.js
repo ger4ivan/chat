@@ -6,7 +6,7 @@ const Chat = (props) => {
     return (
         <div className="chat">
             <ChatHeader />
-            <ChatHistory state={props.state}/>
+            <ChatHistory state={props.state} dispatch={props.dispatch}/>
 
         </div>
 

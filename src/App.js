@@ -12,7 +12,7 @@ function App(props) {
           <div className="col-lg-12">
             <div className="card chat-app">
               <ChatBar state={props.state}/>
-              <Chat state={props.state}/>
+              <Chat state={props.state} dispatch={props.dispatch}/>
             </div>
           </div>
         </div>

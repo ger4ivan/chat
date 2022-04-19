@@ -1,43 +1,40 @@
 import React from "react";
+import ChatMessage from "./ChatMessages/ChatMessage";
+import {AddMessageCreator, onTypeTextMessage} from "../../../redux/messages-reducer";
 
+function ChatHistory(props) {
 
+    let ChatMessages = props.state.ChatHistory.Messages.map(s => <ChatMessage date={s.date} time={s.time} message={s.message}/>)
 
-
-
-
-
-
-function ChatHistory (props) {
-    let MessageItemElements = props.state.ChatHistory.map(s => <MessageItemElement date={s.date} time={s.time} message={s.message}/>)
     let textareaField = React.createRef();
-    const MessageItemElement = (props) => {
-        return (
-            <li className="clearfix">
-                <div className="message-data">
-                    <span className="message-data-time">{props.date} {props.time}</span>
-                </div>
-                <div className="message my-message">{props.message}</div>
-            </li>
-        )
+
+    let addMessage = () => {
+        props.dispatch(AddMessageCreator());
     }
-    let onTypeText = () =>
-    {
-        let text = textareaField.current.value;
-        let action = {type: 'UPDATE-MESSAGE', newText: text};
-        this.props.dispatch(action)
+    let onTypeText = () => {
+
+         let text = textareaField.current.value;
+         let action = onTypeTextMessage(text);
+
+        props.dispatch(action);
+
     }
     return (
         <div className="chat-history">
             <ul className="m-b-0">
-                {MessageItemElements}
+                {ChatMessages}
             </ul>
             <div className="chat-message clearfix">
                 <div className="input-group mb-0">
                     <div className="input-group-prepend">
                         <span className="input-group-text"><i className="fa fa-send"/></span>
                     </div>
-                    <input type="text" value={props.state.NewMessage}
-    className="form-control" placeholder="Enter text here..."/>
+                    <div><input type="text" ref={textareaField} value={props.state.NewMessage} onChange={onTypeText}
+                                className="form-control" placeholder="Enter text here..."/></div>
+
+
+                    <div><button onClick={addMessage}>Отправить сообщение</button>
+                    </div>
                 </div>
             </div>
         </div>
