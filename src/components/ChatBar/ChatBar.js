@@ -3,6 +3,7 @@ import SearchButton from "./SearchButton/SearchButton";
 import ChatItem from "./ChatItem/ChatItem";
 
 function ChatBar (props) {
+    debugger;
     return (
         <div id="plist" className="ChatBar">
             <SearchButton/>

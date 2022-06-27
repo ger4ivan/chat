@@ -4,6 +4,8 @@ import {AddMessageCreator, onTypeTextMessage} from "../../../redux/messages-redu
 
 function ChatHistory(props) {
 
+
+
     let ChatMessages = props.state.ChatHistory.Messages.map(s => <ChatMessage date={s.date} time={s.time} message={s.message}/>)
 
     let textareaField = React.createRef();
@@ -13,8 +15,8 @@ function ChatHistory(props) {
     }
     let onTypeText = () => {
 
-         let text = textareaField.current.value;
-         let action = onTypeTextMessage(text);
+        let text = textareaField.current.value;
+        let action = onTypeTextMessage(text);
 
         props.dispatch(action);
 
@@ -29,7 +31,7 @@ function ChatHistory(props) {
                     <div className="input-group-prepend">
                         <span className="input-group-text"><i className="fa fa-send"/></span>
                     </div>
-                    <div><input type="text" ref={textareaField} value={props.state.NewMessage} onChange={onTypeText}
+                    <div><input type="text" ref={textareaField} value={props.state} onChange={onTypeText}
                                 className="form-control" placeholder="Enter text here..."/></div>
 
 

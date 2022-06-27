@@ -1,9 +1,11 @@
 
 import './App.css';
+import React from "react";
 import ChatBar from './components/ChatBar/ChatBar';
-import Chat from "./components/Chat/Chat";
 
-function App(props) {
+import ChatContainer from "./components/Chat/ChatContainer";
+
+const App = (props) => {
 
   return (
     <div className="App">
@@ -12,7 +14,7 @@ function App(props) {
           <div className="col-lg-12">
             <div className="card chat-app">
               <ChatBar state={props.state}/>
-              <Chat state={props.state} dispatch={props.dispatch}/>
+              <ChatContainer />
             </div>
           </div>
         </div>
