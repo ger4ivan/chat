@@ -1,40 +1,8 @@
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
+const SEND_MESSAGE = 'SEND_MESSAGE';
 
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE-MESSAGE';
-const SEND_MESSAGE = 'ADD_MESSAGE';
 
 let initialState = {
-    Chats: [
-        {
-            id: 1,
-            avatar: 'https://bootdey.com/img/Content/avatar/avatar1.png',
-            name: 'Vincent Porter',
-            status: 'left 7 mins ago'
-        },
-        {
-            id: 2,
-            avatar: 'https://bootdey.com/img/Content/avatar/avatar2.png',
-            name: 'Vincent Porter2',
-            status: 'left 2 mins ago'
-        },
-        {
-            id: 3,
-            avatar: 'https://bootdey.com/img/Content/avatar/avatar3.png',
-            name: 'Vincent Porter3',
-            status: 'left 1 mins ago'
-        },
-        {
-            id: 4,
-            avatar: 'https://bootdey.com/img/Content/avatar/avatar4.png',
-            name: 'Vincent Porter4',
-            status: 'left 1 mins ago'
-        },
-        {
-            id: 5,
-            avatar: 'https://bootdey.com/img/Content/avatar/avatar5.png',
-            name: 'Vincent Porter5',
-            status: 'online'
-        }
-    ],
     ChatHistory:
         {
             Messages:
@@ -59,11 +27,11 @@ let initialState = {
         },
 }
 
-const messagesReducer = (state = initialState, action) =>
+const chatReducer = (state = initialState, action) =>
 {
 
     switch (action.type) {
-        case "ADD-MESSAGE":
+        case SEND_MESSAGE:
 
             let body = state.ChatHistory.NewMessage;
             state.NewMessage = '';
@@ -75,7 +43,7 @@ const messagesReducer = (state = initialState, action) =>
             });
 
             return state;
-        case 'UPDATE-MESSAGE':
+        case UPDATE_NEW_MESSAGE_BODY:
 
             state.ChatHistory.NewMessage = action.body;
             return state;
@@ -86,4 +54,4 @@ const messagesReducer = (state = initialState, action) =>
 export const AddMessageCreator = () => ({type: SEND_MESSAGE})
 export const onTypeTextMessage = (body) => ({type: UPDATE_NEW_MESSAGE_BODY, body:body})
 
-export default messagesReducer;
+export default chatReducer;

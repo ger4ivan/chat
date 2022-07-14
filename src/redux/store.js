@@ -1,4 +1,4 @@
-import messagesReducer from "./messages-reducer";
+import messagesReducer from "./chatReducer";
 
 let store = {
     _state: {

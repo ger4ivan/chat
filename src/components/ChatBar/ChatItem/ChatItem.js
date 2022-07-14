@@ -1,6 +1,7 @@
 import React from "react";
 
 const ChatItemElement = (props) => {
+    debugger;
     return (
     <div>
         <li className="clearfix">
@@ -21,6 +22,7 @@ const ChatItemElement = (props) => {
 }
 
 const ChatItem = (props) => {
+    debugger;
     let ChatElement = props.state.Chats.map(s => <ChatItemElement name={s.name} staus={s.status} avatar={s.avatar}/>)
 
     return (
