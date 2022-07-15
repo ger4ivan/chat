@@ -3,6 +3,7 @@ import './App.css';
 import ChatBar from './components/ChatBar/ChatBar';
 import Chat from "./components/Chat/Chat";
 import ChatBarContainer from "./components/ChatBar/ChatBarContainer";
+import ChatContainer from "./components/Chat/ChatContainer"
 import {Route} from "react-router-dom";
 
 const App = () => {
@@ -16,7 +17,7 @@ const App = () => {
               <div className="card chat-app">
 
                 <ChatBarContainer />
-
+                <ChatContainer/>
               </div>
             </div>
           </div>
